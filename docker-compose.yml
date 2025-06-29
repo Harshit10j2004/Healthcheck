@@ -1,0 +1,98 @@
+version: "2.1"
+
+services:
+  emailapi:
+    build:
+      context: ./emailapi
+    image: emailapi
+
+    ports: 
+      - "8000:8000"
+    env_file:
+      - healthcheck.env
+    depends_on:
+      - db
+  loginandsignupapi:
+    build:
+      context: ./loginandsignupapi
+      
+    image: loginandsignupapi
+    ports:
+      - "8001:8001"
+    env_file:
+      - healthcheck.env
+    depends_on:
+      - db
+  handelingapi:
+    build:
+      context: ./handelingapi
+      
+    image: handelingapi
+    ports:
+      - "8002:8002"
+    env_file:
+      - healthcheck.env
+    depends_on:
+      - db
+  
+  trigger:
+    build:
+      context: ./trigger
+      
+    image: trigger
+
+    env_file:
+      - healthcheck.env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+
+    ports:
+      - "3310:3306"
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping" , "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      
+
+    environment:
+      MYSQL_ROOT_PASSWORD: Harshit@1234
+      MYSQL_DATABASE: healthcheck
+
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  dashboard:
+    build:
+      context: ./dashboard
+    image: dashboard
+
+    tty: true
+    stdin_open: true
+
+    env_file:
+      - healthcheck.env
+    depends_on:
+      
+      emailapi:
+        condition: service_started
+      loginandsignupapi:
+        condition: service_started
+      handelingapi:
+        condition: service_started
+      trigger:
+        condition: service_started
+      db:
+        condition: service_healthy
+
+          
+
+    restart: always
+
+    
+
+

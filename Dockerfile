@@ -14,6 +14,6 @@ RUN mkdir -p logs
 
 RUN pip install -r requirements.txt
 
+EXPOSE 8001
 
-
-CMD ["python" , "trigger.py"]
+CMD ["uvicorn" , "loginandsignupapi:app", "--host", "0.0.0.0" , "--port" , "8001" ]

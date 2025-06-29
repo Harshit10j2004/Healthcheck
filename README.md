@@ -52,7 +52,7 @@ healthcheck/
 └── db/
     └── init.sql
 
-
+# Don't forget to change the name of dockerfile-emailapi and other with similar name into normal Dockerfile
 # Clone the repository
 git clone https://github.com/your-username/healthcheck.git
 cd healthcheck

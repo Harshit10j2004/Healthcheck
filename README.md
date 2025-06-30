@@ -16,43 +16,6 @@ A real-time website monitoring tool that tracks URL status, response time, and p
 - Docker Swarm
 - SMTP (for email alerts, login ,signup)
 
-# Structure in 
-
-healthcheck/
-│
-├── docker-compose.yml
-├── docker-compose.swarm.yml
-├── .env
-│
-├── emailapi/
-│   ├── Dockerfile
-│   ├── emailapi.py
-│   └── requirements.txt
-│
-├── loginandsignupapi/
-│   ├── Dockerfile
-│   ├── loginandsignupapi.py
-│   └── requirements.txt
-│
-├── dashboard/
-│   ├── Dockerfile
-│   ├── dashboard.py
-│   └── requirements.txt
-│
-├── handelingapi/
-│   ├── Dockerfile
-│   ├── handelingapi.py
-│   └── requirements.txt
-│
-├── trigger/
-│   ├── Dockerfile
-│   ├── trigger.py
-│   └── requirements.txt
-│
-└── db/
-    └── init.sql
-
-# Don't forget to change the name of dockerfile-emailapi and other with similar name into normal Dockerfile
 # Clone the repository
 git clone https://github.com/your-username/healthcheck.git
 cd healthcheck

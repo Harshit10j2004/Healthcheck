@@ -9,6 +9,7 @@ import os
 import logging
 import uvicorn
 
+
 load_dotenv(os.getenv("DOTENV_PATH", "healthcheck.env"))
 
 log_path = os.getenv("LOG_PATH", "logs/logs.txt")

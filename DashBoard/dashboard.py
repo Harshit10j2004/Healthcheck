@@ -6,7 +6,6 @@ import os
 import logging
 
 
-
 log_path = os.getenv("LOG_PATH", "logs/logs.txt")
 log_dir = os.path.dirname(log_path)
 

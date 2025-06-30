@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS healthcheck;
 USE healthcheck;
 
+
 CREATE TABLE IF NOT EXISTS user (
     id INT PRIMARY KEY,
     name VARCHAR(100),

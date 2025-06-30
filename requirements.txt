@@ -1,8 +1,0 @@
-requests
-schedule
-python-dotenv
-uvicorn
-fastapi
-python-multipart
-mysql-connector-python
-python-dotenv

@@ -18,6 +18,7 @@ A real-time website monitoring tool that tracks URL status, response time, and p
 
 # Clone the repository
 git clone https://github.com/your-username/healthcheck.git
+
 cd healthcheck
 
 # Make sure Docker and Docker Compose are installed

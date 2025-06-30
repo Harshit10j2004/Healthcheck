@@ -1,0 +1,5 @@
+requests
+uvicorn
+mysql-connector-python
+dotenv
+python-multipart
